@@ -24,14 +24,16 @@ const testimonials = [
 
 const successStories = [
   {
-    name: "Carlos Empresário",
+    name: "Empresário Duda Arpini",
     story: "Consegui fechar negócios internacionais após completar o curso Prime. A fluência em inglês abriu portas que eu nem imaginava!",
-    result: "Aumento de 40% no faturamento da empresa"
+    result: "Aumento de 40% no faturamento da empresa",
+    videoUrl: "" // Adicione a URL do vídeo aqui
   },
   {
-    name: "Luciana Executiva",
+    name: "Pastor Lucas Dardengo",
     story: "Conquistei uma promoção para gerente regional depois de me tornar fluente. O investimento na Verbo Schools mudou minha carreira!",
-    result: "Promoção internacional conquistada"
+    result: "Promoção internacional conquistada",
+    videoUrl: "" // Adicione a URL do vídeo aqui
   }
 ];
 
@@ -92,9 +94,22 @@ export const TestimonialsSection = () => {
               <Card key={index} className="h-full bg-gradient-to-br from-verbo-coral/10 to-verbo-coral/5 border-verbo-coral/20 border-2 hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8 space-y-4">
                   <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-verbo-coral text-white rounded-full flex items-center justify-center text-2xl font-bold">
-                      {story.name.charAt(0)}
-                    </div>
+                    {story.videoUrl ? (
+                      <div className="w-full max-w-sm mx-auto mb-4 aspect-video rounded-lg overflow-hidden">
+                        <video 
+                          controls 
+                          className="w-full h-full object-cover"
+                          poster=""
+                        >
+                          <source src={story.videoUrl} type="video/mp4" />
+                          Seu navegador não suporta o elemento de vídeo.
+                        </video>
+                      </div>
+                    ) : (
+                      <div className="w-16 h-16 mx-auto mb-4 bg-verbo-coral text-white rounded-full flex items-center justify-center text-2xl font-bold">
+                        {story.name.charAt(0)}
+                      </div>
+                    )}
                     
                     <h4 className="text-xl font-bold text-primary mb-2">{story.name}</h4>
                     
