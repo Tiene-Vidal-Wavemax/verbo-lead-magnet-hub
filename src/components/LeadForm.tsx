@@ -7,29 +7,29 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Gift, Clock, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 interface LeadFormData {
   name: string;
   phone: string;
   source: string;
 }
-
 interface LeadFormProps {
   onSubmit: (data: LeadFormData) => void;
   isLoading?: boolean;
 }
-
-export const LeadForm = ({ onSubmit, isLoading = false }: LeadFormProps) => {
+export const LeadForm = ({
+  onSubmit,
+  isLoading = false
+}: LeadFormProps) => {
   const [formData, setFormData] = useState<LeadFormData>({
     name: "",
     phone: "",
     source: ""
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!formData.name || !formData.phone || !formData.source) {
       toast({
         title: "Campos obrigatórios",
@@ -38,16 +38,15 @@ export const LeadForm = ({ onSubmit, isLoading = false }: LeadFormProps) => {
       });
       return;
     }
-
     onSubmit(formData);
   };
-
   const handleInputChange = (field: keyof LeadFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
-
-  return (
-    <Card className="w-full max-w-lg mx-auto shadow-xl border-0 bg-white/95 backdrop-blur-sm">
+  return <Card className="w-full max-w-lg mx-auto shadow-xl border-0 bg-white/95 backdrop-blur-sm">
       <CardHeader className="text-center space-y-4">
         <div className="flex items-center justify-center gap-2">
           <Gift className="h-6 w-6 text-accent" />
@@ -65,7 +64,8 @@ export const LeadForm = ({ onSubmit, isLoading = false }: LeadFormProps) => {
         <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <Clock className="h-4 w-4" />
-            <span>30 minutos</span>
+            <span>
+          </span>
           </div>
           <div className="flex items-center gap-1">
             <CheckCircle className="h-4 w-4" />
@@ -78,33 +78,17 @@ export const LeadForm = ({ onSubmit, isLoading = false }: LeadFormProps) => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="name">Nome completo</Label>
-            <Input
-              id="name"
-              type="text"
-              placeholder="Digite seu nome completo"
-              value={formData.name}
-              onChange={(e) => handleInputChange("name", e.target.value)}
-              required
-              className="h-12"
-            />
+            <Input id="name" type="text" placeholder="Digite seu nome completo" value={formData.name} onChange={e => handleInputChange("name", e.target.value)} required className="h-12" />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="phone">WhatsApp</Label>
-            <Input
-              id="phone"
-              type="tel"
-              placeholder="(65) 9 9999-9999"
-              value={formData.phone}
-              onChange={(e) => handleInputChange("phone", e.target.value)}
-              required
-              className="h-12"
-            />
+            <Input id="phone" type="tel" placeholder="(65) 9 9999-9999" value={formData.phone} onChange={e => handleInputChange("phone", e.target.value)} required className="h-12" />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="source">Como conheceu a Verbo Schools?</Label>
-            <Select value={formData.source} onValueChange={(value) => handleInputChange("source", value)}>
+            <Select value={formData.source} onValueChange={value => handleInputChange("source", value)}>
               <SelectTrigger className="h-12">
                 <SelectValue placeholder="Selecione uma opção" />
               </SelectTrigger>
@@ -117,13 +101,7 @@ export const LeadForm = ({ onSubmit, isLoading = false }: LeadFormProps) => {
             </Select>
           </div>
 
-          <Button 
-            type="submit" 
-            variant="hero" 
-            size="lg" 
-            className="w-full h-14 text-lg font-semibold"
-            disabled={isLoading}
-          >
+          <Button type="submit" variant="hero" size="lg" className="w-full h-14 text-lg font-semibold" disabled={isLoading}>
             {isLoading ? "Enviando..." : "GARANTIR MINHA AULA GRÁTIS"}
           </Button>
 
@@ -132,6 +110,5 @@ export const LeadForm = ({ onSubmit, isLoading = false }: LeadFormProps) => {
           </p>
         </form>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
