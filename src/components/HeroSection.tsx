@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Star, Users, Clock, Award } from "lucide-react";
 
 export const HeroSection = () => {
   return (
@@ -32,37 +31,6 @@ export const HeroSection = () => {
             ganhe um fone de ouvido ao se matricular
           </p>
 
-          {/* Social proof stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1 mb-2">
-                <Star className="h-5 w-5 text-yellow-400 fill-current" />
-                <Star className="h-5 w-5 text-yellow-400 fill-current" />
-                <Star className="h-5 w-5 text-yellow-400 fill-current" />
-                <Star className="h-5 w-5 text-yellow-400 fill-current" />
-                <Star className="h-5 w-5 text-yellow-400 fill-current" />
-              </div>
-              <p className="text-white/80 text-sm">5.0 estrelas</p>
-            </div>
-            
-            <div className="text-center">
-              <Users className="h-8 w-8 text-verbo-turquoise mx-auto mb-2" />
-              <p className="text-white font-semibold">500+</p>
-              <p className="text-white/80 text-sm">Alunos ativos</p>
-            </div>
-            
-            <div className="text-center">
-              <Clock className="h-8 w-8 text-verbo-coral mx-auto mb-2" />
-              <p className="text-white font-semibold">30min</p>
-              <p className="text-white/80 text-sm">Aula teste</p>
-            </div>
-            
-            <div className="text-center">
-              <Award className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
-              <p className="text-white font-semibold">+5 anos</p>
-              <p className="text-white/80 text-sm">Experiência</p>
-            </div>
-          </div>
 
           {/* CTA adicional */}
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-white/20">

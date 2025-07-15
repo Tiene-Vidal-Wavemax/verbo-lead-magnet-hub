@@ -1,6 +1,8 @@
 import { HeroSection } from "@/components/HeroSection";
+import { CoursesSection } from "@/components/CoursesSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { FormSection } from "@/components/FormSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useToast } from "@/hooks/use-toast";
@@ -56,8 +58,10 @@ const Index = () => {
       </div>
 
       <HeroSection />
+      <CoursesSection />
       <BenefitsSection />
       <FormSection onLeadSubmit={handleLeadSubmit} />
+      <TestimonialsSection />
       <WhatsAppButton onClick={handleWhatsAppClick} />
       
       {/* Footer */}

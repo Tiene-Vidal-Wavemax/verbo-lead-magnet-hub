@@ -1,38 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Headphones, BookOpen, Users, Trophy, Clock, CheckCircle } from "lucide-react";
+import { BookOpen, Users, Trophy } from "lucide-react";
 
 const benefits = [
   {
     icon: BookOpen,
     title: "Aula Experimental Gratuita",
-    description: "30 minutos de aula personalizada para conhecer nossa metodologia",
-    highlight: true
-  },
-  {
-    icon: Headphones,
-    title: "Fone de Ouvido Grátis",
-    description: "Ganhe um fone de ouvido de qualidade ao se matricular",
+    description: "30 minutos de aula personalizada para conhecer nossa metodologia antes de se matricular",
     highlight: true
   },
   {
     icon: Users,
-    title: "Turmas Pequenas",
-    description: "Máximo 8 alunos por turma para aprendizado personalizado"
+    title: "Aulas em Pequenas Turmas",
+    description: "Turmas pequenas ou aulas individuais e personalizadas de acordo com sua necessidade",
+    highlight: false
   },
   {
     icon: Trophy,
-    title: "Método Comprovado",
-    description: "Mais de 500 alunos aprovados em exames internacionais"
-  },
-  {
-    icon: Clock,
-    title: "Horários Flexíveis",
-    description: "Manhã, tarde ou noite. Escolha o melhor horário para você"
-  },
-  {
-    icon: CheckCircle,
-    title: "Certificação",
-    description: "Certificado reconhecido nacionalmente ao final do curso"
+    title: "Certificação Internacional",
+    description: "Certificação internacional reconhecida no mundo todo ao final do curso",
+    highlight: false
   }
 ];
 
@@ -49,7 +35,7 @@ export const BenefitsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
