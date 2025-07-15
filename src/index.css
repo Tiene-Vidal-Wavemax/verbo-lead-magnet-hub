@@ -8,33 +8,49 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Verbo Schools Brand Colors */
+    --verbo-navy: 237 57% 25%;
+    --verbo-coral: 8 81% 60%;
+    --verbo-turquoise: 180 69% 51%;
+    --verbo-navy-light: 237 45% 35%;
+    --verbo-coral-light: 8 71% 70%;
+    
+    /* Design System */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 237 57% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 237 57% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 237 57% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 237 57% 25%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 180 69% 51%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 8 81% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 237 20% 95%;
+    --muted-foreground: 237 30% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 237 20% 90%;
+    --input: 237 15% 95%;
+    --ring: 237 57% 25%;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--verbo-navy)), hsl(var(--verbo-navy-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--verbo-coral)), hsl(var(--verbo-coral-light)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--verbo-navy) / 0.1);
+    --shadow-strong: 0 8px 30px hsl(var(--verbo-navy) / 0.15);
 
     --radius: 0.5rem;
 
