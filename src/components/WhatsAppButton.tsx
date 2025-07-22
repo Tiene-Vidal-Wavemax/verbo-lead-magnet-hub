@@ -19,7 +19,7 @@ export const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 group">
-      {/* Pulse ring animation */}
+      {/* Pulse ring animation - updated */}
       <div className="absolute inset-0 rounded-full animate-ping bg-green-400 opacity-75"></div>
       
       {/* Main button with enhanced styling */}
