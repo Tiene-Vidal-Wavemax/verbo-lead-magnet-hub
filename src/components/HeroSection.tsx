@@ -20,10 +20,11 @@ export const HeroSection = () => {
         </div>
         
         <div className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Badge de promoção */}
+          {/* Badge de promoção - Clicável */}
           <Badge 
             variant="secondary" 
-            className="bg-verbo-coral text-white px-6 py-2 text-lg font-semibold animate-pulse"
+            className="bg-verbo-coral text-white px-6 py-2 text-lg font-semibold animate-pulse cursor-pointer hover:bg-verbo-coral/90 transition-all duration-300 hover:scale-105"
+            onClick={() => window.open('https://wa.me/5566996001077?text=Saber%20mais%20aula%20experimental', '_blank')}
           >
             🎧 PROMOÇÃO LIMITADA - FONE DE OUVIDO GRÁTIS
           </Badge>
@@ -41,13 +42,16 @@ export const HeroSection = () => {
           </p>
 
 
-          {/* CTA adicional */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-white/20">
+          {/* CTA adicional - Clicável */}
+          <div 
+            className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-white/20 cursor-pointer hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            onClick={() => window.open('https://wa.me/5566996001077?text=Saber%20mais%20aula%20experimental', '_blank')}
+          >
             <p className="text-white text-lg mb-2">
               ⏰ <strong>Oferta por tempo limitado!</strong>
             </p>
             <p className="text-white/90">
-              Agende sua aula experimental gratuita agora e garante seu fone de ouvido na matrícula
+              Agende sua aula experimental gratuita agora e <strong className="text-verbo-coral">garante seu fone de ouvido na matrícula</strong>
             </p>
           </div>
         </div>

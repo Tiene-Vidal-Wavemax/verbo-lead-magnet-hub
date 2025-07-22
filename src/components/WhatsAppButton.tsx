@@ -18,14 +18,31 @@ export const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
   };
 
   return (
-    <Button
-      onClick={handleClick}
-      variant="whatsapp"
-      size="lg"
-      className="fixed bottom-6 right-6 rounded-full h-16 w-16 shadow-2xl hover:scale-110 transition-all duration-300 z-50 md:h-auto md:w-auto md:rounded-lg md:px-6"
-    >
-      <MessageCircle className="h-6 w-6 md:mr-2" />
-      <span className="hidden md:inline">Falar no WhatsApp</span>
-    </Button>
+    <div className="fixed bottom-6 right-6 z-50 group">
+      {/* Notification bubble */}
+      <div className="absolute -top-2 -left-2 w-6 h-6 bg-verbo-coral rounded-full flex items-center justify-center text-white text-xs font-bold animate-pulse border-2 border-white">
+        !
+      </div>
+      
+      {/* Pulse ring animation */}
+      <div className="absolute inset-0 rounded-full animate-ping bg-green-400 opacity-75"></div>
+      
+      {/* Main button with enhanced styling */}
+      <Button
+        onClick={handleClick}
+        variant="whatsapp"
+        size="lg"
+        className="relative rounded-full h-20 w-20 shadow-2xl hover:scale-110 transition-all duration-300 animate-bounce hover:animate-none group-hover:shadow-green-500/50 md:h-auto md:w-auto md:rounded-lg md:px-6 md:animate-none"
+      >
+        <MessageCircle className="h-8 w-8 md:mr-2 md:h-6 md:w-6" />
+        <span className="hidden md:inline font-bold">💬 Falar no WhatsApp</span>
+      </Button>
+      
+      {/* Tooltip for mobile */}
+      <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-verbo-navy text-white px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-sm font-semibold md:hidden">
+        💬 Aula experimental grátis!
+        <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-verbo-navy"></div>
+      </div>
+    </div>
   );
 };
