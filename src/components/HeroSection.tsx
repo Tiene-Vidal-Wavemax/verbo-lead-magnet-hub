@@ -36,7 +36,7 @@ export const HeroSection = () => {
           </h1>
 
           {/* Subtítulo */}
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-verbo-navy max-w-3xl mx-auto leading-relaxed font-semibold">
             Faça sua <strong className="text-verbo-tiffany">aula experimental gratuita</strong> e 
             ganhe um fone de ouvido ao se matricular
           </p>
