@@ -66,13 +66,51 @@ const Index = () => {
       
       {/* Footer */}
       <footer className="bg-primary text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <div className="mb-4">
-            <h3 className="text-2xl font-bold mb-2">Verbo Schools</h3>
-            <p className="text-white/80">Transformando vidas através do inglês</p>
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            {/* Logo */}
+            <div className="flex justify-center md:justify-start">
+              <img 
+                src="/lovable-uploads/ef8f14e0-0c7a-429f-bc25-39a454a0aac7.png" 
+                alt="Verbo Schools Logo" 
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+            
+            {/* Centro - Informações principais */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-2">Verbo Schools</h3>
+              <p className="text-white/80 mb-4">Transformando vidas através do inglês</p>
+              
+              {/* Contato */}
+              <div className="space-y-2">
+                <p className="text-white/90">
+                  📞 <a href="tel:+5566996001077" className="hover:text-verbo-coral transition-colors">(66) 99600-1077</a>
+                </p>
+                <p className="text-white/90">
+                  📱 <a 
+                    href="https://www.instagram.com/verboschools.altafloresta/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-verbo-coral transition-colors"
+                  >
+                    verboschools.altafloresta
+                  </a>
+                </p>
+              </div>
+            </div>
+            
+            {/* Direita - Logo fixa no canto esquerdo */}
+            <div className="hidden md:block">
+              <img 
+                src="/lovable-uploads/ef8f14e0-0c7a-429f-bc25-39a454a0aac7.png" 
+                alt="Verbo Schools Logo" 
+                className="h-12 w-auto object-contain opacity-30 fixed bottom-6 left-6 z-40"
+              />
+            </div>
           </div>
           
-          <div className="border-t border-white/20 pt-4">
+          <div className="border-t border-white/20 pt-4 mt-6 text-center">
             <p className="text-white/60 text-sm">
               © 2024 Verbo Schools. Todos os direitos reservados.
             </p>
