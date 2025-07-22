@@ -19,11 +19,6 @@ export const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 group">
-      {/* Notification bubble */}
-      <div className="absolute -top-2 -left-2 w-6 h-6 bg-verbo-coral rounded-full flex items-center justify-center text-white text-xs font-bold animate-pulse border-2 border-white">
-        !
-      </div>
-      
       {/* Pulse ring animation */}
       <div className="absolute inset-0 rounded-full animate-ping bg-green-400 opacity-75"></div>
       
