@@ -6,6 +6,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const { analytics, trackFormSubmission, trackWhatsAppClick } = useAnalytics();
@@ -13,25 +14,17 @@ const Index = () => {
 
   const handleLeadSubmit = async (data: any) => {
     try {
-      // Here you would normally send to Supabase
-      // For now, we'll simulate the submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const { error } = await supabase
+        .from('leads')
+        .insert([{
+          nome: data.name,
+          telefone: data.phone,
+          como_soube: data.source
+        }]);
+
+      if (error) throw error;
       
-      // Track the submission
       trackFormSubmission();
-      
-      // Save to localStorage as backup (replace with Supabase integration)
-      const leads = JSON.parse(localStorage.getItem('verbo_leads') || '[]');
-      const newLead = {
-        ...data,
-        timestamp: new Date().toISOString(),
-        id: Date.now()
-      };
-      leads.push(newLead);
-      localStorage.setItem('verbo_leads', JSON.stringify(leads));
-      
-      console.log('Lead captured:', newLead);
-      console.log('Analytics:', analytics);
       
     } catch (error) {
       console.error('Error submitting lead:', error);
