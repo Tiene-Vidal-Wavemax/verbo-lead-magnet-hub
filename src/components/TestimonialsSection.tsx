@@ -3,24 +3,23 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Maria Silva",
-    text: "Excelente escola! Minha filha aprendeu inglês de forma divertida e eficaz. Os professores são muito dedicados e atenciosos.",
-    rating: 5,
-    course: "Curso Kids"
+    name: "Mona Lisa Dias",
+    text: "Maravilhosa...profissionais excelentes...ambiente agradável...e o resultado perfeito",
+    rating: 5
   },
   {
-    name: "João Santos",
-    text: "A metodologia da Verbo Schools é incrível. Consegui aprender inglês mesmo com a agenda corrida. Horários flexíveis e professores excelentes!",
-    rating: 5,
-    course: "Curso Class"
+    name: "luizao",
+    text: "Ensino prático e objetivo focando em conversação. Muito satisfeito com as aulas.",
+    rating: 5
   },
   {
-    name: "Ana Costa",
-    text: "Recomendo demais! Meu filho adolescente estava desmotivado com inglês, mas aqui ele recuperou o interesse. Professores especializados fazem toda diferença.",
-    rating: 5,
-    course: "Curso Teens"
+    name: "Tiene Vidal",
+    text: "O ambiente é ótimo, super seguro e confortável, pra nos que trabalhamos e precisamos estudar a noite, vale muito a pena! Super indico a Verbo, as aulas são diferentes e estou me adaptando melhor do que pensei!",
+    rating: 5
   }
 ];
+
+const googleReviewsUrl = "https://www.google.com/search?q=Escola+Ingl%C3%AAs+Verbo+Schools+Alta+Floresta&stick=H4sIAAAAAAAA_-NgU1I1qLA0Tkw0NkwxMDQzME8ySDK3MqhITDE3MzU2SjQ0MkpJMUg0WMSq5VqcnJ-TqOCZl55zeFWxQlhqUVK-QnByRn5-TrGCY05JooJbTn5RanFJIgDexhqqVgAAAA&hl=pt-BR&mat=CZqpGst8_akBElYBYJahae-wvIoSOeQPGFX3f88CyxlfcvBugNmS0S9RDPWNBu2oDBC_K_ESA7oXhHyNdTcXAF-q8HBPXn3acHpL6oOx8JC_ji9A-Yuw-W4BjjF9v_50sQ&authuser=0#cobssid=s&mpd=~119905577527323034/customers/reviews";
 
 
 export const TestimonialsSection = () => {
@@ -40,7 +39,11 @@ export const TestimonialsSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="h-full hover:shadow-xl transition-all duration-300">
+              <Card 
+                key={index} 
+                className="h-full hover:shadow-xl transition-all duration-300 cursor-pointer"
+                onClick={() => window.open(googleReviewsUrl, '_blank')}
+              >
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-1 mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -56,7 +59,7 @@ export const TestimonialsSection = () => {
                   
                   <div className="pt-4 border-t border-border">
                     <p className="font-semibold text-primary">{testimonial.name}</p>
-                    <p className="text-sm text-verbo-coral">{testimonial.course}</p>
+                    <p className="text-sm text-verbo-coral">⭐ Avaliação Google</p>
                   </div>
                 </CardContent>
               </Card>
