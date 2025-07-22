@@ -85,7 +85,7 @@ const Index = () => {
               {/* Contato */}
               <div className="space-y-2">
                 <p className="text-white/90">
-                  📞 <a href="tel:+5566996001077" className="hover:text-verbo-coral transition-colors">(66) 99600-1077</a>
+                  📞 (66) 99600-1077
                 </p>
                 <p className="text-white/90">
                   📱 <a 
