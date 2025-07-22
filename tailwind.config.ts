@@ -53,11 +53,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				// Verbo Schools brand colors
-				'verbo-navy': 'hsl(var(--verbo-navy))',
-				'verbo-coral': 'hsl(var(--verbo-coral))',
-				'verbo-turquoise': 'hsl(var(--verbo-turquoise))',
-				'verbo-navy-light': 'hsl(var(--verbo-navy-light))',
-				'verbo-coral-light': 'hsl(var(--verbo-coral-light))',
+        'verbo-navy': 'hsl(var(--verbo-navy))',
+        'verbo-coral': 'hsl(var(--verbo-coral))',
+        'verbo-tiffany': 'hsl(var(--verbo-tiffany))',
+        'verbo-navy-light': 'hsl(var(--verbo-navy-light))',
+        'verbo-coral-light': 'hsl(var(--verbo-coral-light))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

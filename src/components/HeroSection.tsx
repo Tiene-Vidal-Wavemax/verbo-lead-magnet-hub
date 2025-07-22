@@ -2,14 +2,23 @@ import { Badge } from "@/components/ui/badge";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-verbo-navy via-verbo-navy-light to-verbo-navy flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-verbo-tiffany via-verbo-tiffany/90 to-verbo-navy flex items-center justify-center overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-20 w-72 h-72 bg-verbo-coral rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-verbo-turquoise rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-verbo-tiffany rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 py-16 relative z-10">
+        {/* Logo da Verbo Schools */}
+        <div className="text-center mb-8">
+          <img 
+            src="/lovable-uploads/ef8f14e0-0c7a-429f-bc25-39a454a0aac7.png" 
+            alt="Verbo Schools Logo" 
+            className="mx-auto h-20 md:h-24 lg:h-28 w-auto object-contain"
+          />
+        </div>
+        
         <div className="text-center space-y-8 max-w-4xl mx-auto">
           {/* Badge de promoção */}
           <Badge 
@@ -27,7 +36,7 @@ export const HeroSection = () => {
 
           {/* Subtítulo */}
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Faça sua <strong className="text-verbo-turquoise">aula experimental gratuita</strong> e 
+            Faça sua <strong className="text-verbo-tiffany">aula experimental gratuita</strong> e 
             ganhe um fone de ouvido ao se matricular
           </p>
 
