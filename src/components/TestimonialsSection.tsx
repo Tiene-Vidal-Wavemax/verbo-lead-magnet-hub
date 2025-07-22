@@ -19,7 +19,7 @@ const testimonials = [
   }
 ];
 
-const googleReviewsUrl = "https://www.google.com/search?q=Escola+Ingl%C3%AAs+Verbo+Schools+Alta+Floresta&stick=H4sIAAAAAAAA_-NgU1I1qLA0Tkw0NkwxMDQzME8ySDK3MqhITDE3MzU2SjQ0MkpJMUg0WMSq5VqcnJ-TqOCZl55zeFWxQlhqUVK-QnByRn5-TrGCY05JooJbTn5RanFJIgDexhqqVgAAAA&hl=pt-BR&mat=CZqpGst8_akBElYBYJahae-wvIoSOeQPGFX3f88CyxlfcvBugNmS0S9RDPWNBu2oDBC_K_ESA7oXhHyNdTcXAF-q8HBPXn3acHpL6oOx8JC_ji9A-Yuw-W4BjjF9v_50sQ&authuser=0#cobssid=s&mpd=~119905577527323034/customers/reviews";
+const googleReviewsUrl = "https://www.google.com/search?sca_esv=aa355e4347ca4578&hl=pt-BR&authuser=0&sxsrf=AE3TifOBwZA7CCKdEdGJLdcywXbibFvKxA:1753224495268&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E0ttbEmhzYXA5relv6NB2WzeyiJPetnqvgZq88WKFDwGemoreYyMQfNYDt5SgEUDEqOwbhyvhkx3lCJmWEVlA2VE-ANTiB9WwlXFQI3PCGMlFsV9PpX1F821hfUtalzDW-qOBKw%3D&q=Escola+Ingl%C3%AAs+Verbo+Schools+Alta+Floresta+Coment%C3%A1rios&sa=X&ved=2ahUKEwiT5oGaxtGOAxU4r5UCHainOD8Q0bkNegQIIRAD&biw=1920&bih=953&dpr=1";
 
 
 export const TestimonialsSection = () => {
