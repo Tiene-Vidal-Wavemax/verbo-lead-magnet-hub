@@ -37,7 +37,7 @@ export const HeroSection = () => {
 
           {/* Subtítulo */}
           <p className="text-xl md:text-2xl text-verbo-navy max-w-3xl mx-auto leading-relaxed font-semibold">
-            Faça sua <strong className="text-white">aula experimental gratuita</strong> e 
+            Faça sua <strong className="text-verbo-navy">aula experimental gratuita</strong> e 
             ganhe um fone de ouvido ao se matricular
           </p>
 
