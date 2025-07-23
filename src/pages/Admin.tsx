@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowLeft, Phone, Calendar, Users, TrendingUp, RefreshCw } from "lucide-react";
+import { ArrowLeft, Phone, Calendar, Users, TrendingUp, RefreshCw, LogOut } from "lucide-react";
+import type { User, Session } from '@supabase/supabase-js';
 
 interface Lead {
   id: string;
@@ -19,6 +21,8 @@ interface Lead {
 const Admin = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [stats, setStats] = useState({
     total: 0,
     today: 0,
@@ -26,6 +30,7 @@ const Admin = () => {
     sources: {} as Record<string, number>
   });
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const fetchLeads = async () => {
     try {
@@ -78,34 +83,55 @@ const Admin = () => {
   };
 
   useEffect(() => {
-    fetchLeads();
-
-    // Configurar realtime para updates automáticos
-    const channel = supabase
-      .channel('schema-db-changes')
-      .on(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'leads'
-        },
-        (payload) => {
-          console.log('Novo lead recebido:', payload);
-          setLeads(prev => [payload.new as Lead, ...prev]);
-          
-          toast({
-            title: "🎉 Novo Lead!",
-            description: `${(payload.new as Lead).nome} acabou de se cadastrar!`,
-          });
+    // Set up auth state listener FIRST
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        
+        if (!session?.user) {
+          navigate('/login');
         }
-      )
-      .subscribe();
+      }
+    );
 
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [toast]);
+    // THEN check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      
+      if (!session?.user) {
+        navigate('/login');
+      } else {
+        // Only fetch leads if user is authenticated
+        fetchLeads();
+        
+        // Configurar realtime para updates automáticos
+        const channel = supabase
+          .channel('schema-db-changes')
+          .on(
+            'postgres_changes',
+            {
+              event: 'INSERT',
+              schema: 'public',
+              table: 'leads'
+            },
+            (payload) => {
+              console.log('Novo lead recebido:', payload);
+              setLeads(prev => [payload.new as Lead, ...prev]);
+              
+              toast({
+                title: "🎉 Novo Lead!",
+                description: `${(payload.new as Lead).nome} acabou de se cadastrar!`,
+              });
+            }
+          )
+          .subscribe();
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate, toast]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleString('pt-BR');
@@ -131,6 +157,31 @@ const Admin = () => {
     return colors[source] || 'bg-gray-100 text-gray-800';
   };
 
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      
+      toast({
+        title: "Logout realizado",
+        description: "Você foi desconectado com sucesso.",
+      });
+      
+      navigate('/login');
+    } catch (error) {
+      toast({
+        title: "Erro ao fazer logout",
+        description: "Tente novamente.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  // Don't render anything if not authenticated
+  if (!session?.user) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-7xl mx-auto">
@@ -147,16 +198,31 @@ const Admin = () => {
               Voltar
             </Button>
             <h1 className="text-3xl font-bold text-gray-900">Dashboard de Leads</h1>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={fetchLeads}
-              disabled={isLoading}
-              className="ml-auto flex items-center gap-2"
-            >
-              <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
-              Atualizar
-            </Button>
+            
+            <div className="ml-auto flex items-center gap-2">
+              <div className="text-sm text-muted-foreground">
+                Logado como: <span className="font-medium">{user?.email}</span>
+              </div>
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={fetchLeads}
+                disabled={isLoading}
+                className="flex items-center gap-2"
+              >
+                <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+                Atualizar
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={handleLogout}
+                className="flex items-center gap-2 text-red-600 hover:text-red-700"
+              >
+                <LogOut className="h-4 w-4" />
+                Sair
+              </Button>
+            </div>
           </div>
           
           {/* Stats Cards */}
