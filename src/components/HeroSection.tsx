@@ -20,15 +20,6 @@ export const HeroSection = () => {
         </div>
         
         <div className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Badge de promoção - Clicável */}
-          <Badge 
-            variant="secondary" 
-            className="bg-verbo-coral text-white px-6 py-2 text-lg font-semibold animate-pulse cursor-pointer hover:bg-verbo-coral/90 transition-all duration-300 hover:scale-105"
-            onClick={() => window.open('https://wa.me/5566996001077?text=Saber%20mais%20aula%20experimental', '_blank')}
-          >
-            🎧 PROMOÇÃO LIMITADA - FONE DE OUVIDO GRÁTIS
-          </Badge>
-
           {/* Título principal */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
             Aprenda Inglês com a
@@ -41,17 +32,19 @@ export const HeroSection = () => {
             ganhe um fone de ouvido ao se matricular
           </p>
 
-
-          {/* CTA adicional - Clicável */}
+          {/* CTA com destaque melhorado - Oferta por tempo limitado */}
           <div 
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto border border-white/20 cursor-pointer hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            className="bg-gradient-to-r from-verbo-coral to-verbo-coral/80 backdrop-blur-sm rounded-2xl p-8 max-w-3xl mx-auto border-2 border-white/30 cursor-pointer hover:scale-105 transition-all duration-300 shadow-2xl animate-pulse"
             onClick={() => window.open('https://wa.me/5566996001077?text=Saber%20mais%20aula%20experimental', '_blank')}
           >
-            <p className="text-white text-lg mb-2">
-              ⏰ <strong>Oferta por tempo limitado!</strong>
+            <p className="text-white text-2xl font-bold mb-4 flex items-center justify-center gap-3">
+              🎧 <span>OFERTA POR TEMPO LIMITADO!</span> 🎧
             </p>
-            <p className="text-white/90">
-              Agende sua aula experimental gratuita agora e <strong className="text-verbo-coral">garante seu fone de ouvido na matrícula</strong>
+            <p className="text-white text-lg leading-relaxed">
+              Agende sua aula experimental gratuita agora e <strong className="text-white">GANHE UM FONE DE OUVIDO NA MATRÍCULA</strong>
+            </p>
+            <p className="text-white/90 text-sm mt-3 italic">
+              Clique aqui para garantir sua vaga
             </p>
           </div>
         </div>
