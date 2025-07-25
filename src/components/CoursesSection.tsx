@@ -55,24 +55,22 @@ export const CoursesSection = () => {
               key={index} 
               className={`h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${course.bgColor} ${course.borderColor} border-2`}
             >
-              <CardContent className="p-8 text-center space-y-4">
-                <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+              <CardContent className="p-8 text-center space-y-6">
+                <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
                   <img src={course.logo} alt={course.title} className="w-full h-full object-contain" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-primary" translate="no" lang="en">
-                  {course.title}
-                </h3>
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-bold text-primary" translate="no" lang="en">
+                    {course.title}
+                  </h3>
+                  
+                  <h4 className="text-base font-medium text-muted-foreground">
+                    {course.subtitle}
+                  </h4>
+                </div>
                 
-                <h4 className="text-lg font-semibold text-muted-foreground">
-                  {course.subtitle}
-                </h4>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {course.description}
-                </p>
-                
-                <div className="pt-4">
+                <div className="pt-6">
                   <span className="text-sm text-verbo-coral font-semibold" translate="no" lang="en">
                     Verbo Schools
                   </span>
