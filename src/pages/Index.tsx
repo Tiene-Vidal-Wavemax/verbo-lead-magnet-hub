@@ -1,3 +1,4 @@
+
 import { HeroSection } from "@/components/HeroSection";
 import { CoursesSection } from "@/components/CoursesSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
@@ -82,7 +83,7 @@ const Index = () => {
             
             {/* Centro - Informações principais */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-2">Verbo Schools</h3>
+              <h3 className="text-2xl font-bold mb-2" translate="no" lang="en">Verbo Schools</h3>
               <p className="text-white/80 mb-4">Transformando vidas através do inglês</p>
               
               {/* Contato */}
@@ -96,6 +97,8 @@ const Index = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="hover:text-verbo-coral transition-colors"
+                    translate="no"
+                    lang="en"
                   >
                     verboschools.altafloresta
                   </a>
@@ -115,7 +118,7 @@ const Index = () => {
           
           <div className="border-t border-white/20 pt-4 mt-6 text-center">
             <p className="text-white/60 text-sm">
-              © 2024 Verbo Schools. Todos os direitos reservados.
+              © 2024 <span translate="no" lang="en">Verbo Schools</span>. Todos os direitos reservados.
             </p>
           </div>
         </div>

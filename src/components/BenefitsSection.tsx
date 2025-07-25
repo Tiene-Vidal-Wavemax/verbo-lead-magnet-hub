@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Users, Trophy } from "lucide-react";
 
@@ -28,7 +29,7 @@ export const BenefitsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Por que escolher a Verbo Schools?
+            Por que escolher a <span translate="no" lang="en">Verbo Schools</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Mais de 5 anos transformando vidas através do inglês

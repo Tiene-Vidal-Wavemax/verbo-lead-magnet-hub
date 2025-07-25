@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 
 const courses = [
@@ -59,7 +60,7 @@ export const CoursesSection = () => {
                   <img src={course.logo} alt={course.title} className="w-full h-full object-contain" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-primary">
+                <h3 className="text-2xl font-bold text-primary" translate="no" lang="en">
                   {course.title}
                 </h3>
                 
@@ -72,7 +73,7 @@ export const CoursesSection = () => {
                 </p>
                 
                 <div className="pt-4">
-                  <span className="text-sm text-verbo-coral font-semibold">
+                  <span className="text-sm text-verbo-coral font-semibold" translate="no" lang="en">
                     Verbo Schools
                   </span>
                 </div>
