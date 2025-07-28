@@ -34,7 +34,7 @@ export const HeroSection = () => {
 
           {/* CTA com destaque melhorado - Oferta por tempo limitado */}
           <div 
-            className="bg-gradient-to-r from-verbo-coral to-verbo-coral/80 backdrop-blur-sm rounded-2xl p-8 max-w-3xl mx-auto border-2 border-white/30 cursor-pointer hover:scale-105 transition-all duration-300 shadow-2xl animate-pulse"
+            className="bg-gradient-to-r from-verbo-coral to-verbo-coral/80 backdrop-blur-sm rounded-2xl p-8 max-w-3xl mx-auto border-2 border-white/30 cursor-pointer hover:scale-105 transition-all duration-300 shadow-2xl"
             onClick={() => window.open('https://wa.me/5566996001077?text=Saber%20mais%20aula%20experimental', '_blank')}
           >
             <p className="text-white text-2xl font-bold mb-4 flex items-center justify-center gap-3">
