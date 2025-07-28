@@ -58,15 +58,6 @@ const Index = () => {
       <TestimonialsSection />
       <WhatsAppButton onClick={handleWhatsAppClick} />
       
-      {/* Link para admin - temporário para testes */}
-      <div className="fixed top-4 right-20 z-50">
-        <a 
-          href="/administrador"
-          className="bg-gray-900 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors"
-        >
-          Admin
-        </a>
-      </div>
       
       {/* Footer */}
       <footer className="bg-primary text-white py-8">
