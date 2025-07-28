@@ -28,8 +28,8 @@ export const HeroSection = () => {
 
           {/* Subtítulo */}
           <p className="text-xl md:text-2xl text-verbo-navy max-w-3xl mx-auto leading-relaxed font-semibold">
-            Faça sua <strong className="text-verbo-navy">aula experimental gratuita</strong> e 
-            ganhe um fone de ouvido ao se matricular
+            A <strong className="text-verbo-navy">única escola de inglês em Alta Floresta</strong> com 
+            Sistema de Aquisição de Línguas que <strong className="text-verbo-navy">realmente funciona</strong>
           </p>
 
           {/* CTA com destaque melhorado - Oferta por tempo limitado */}
