@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowLeft, Phone, Calendar, Users, TrendingUp, RefreshCw, LogOut } from "lucide-react";
+import { ArrowLeft, Phone, Calendar, Users, TrendingUp, RefreshCw, LogOut, Settings } from "lucide-react";
+import { TrackingSetup } from "@/components/TrackingSetup";
 import type { User, Session } from '@supabase/supabase-js';
 
 interface Lead {
@@ -29,6 +30,7 @@ const Admin = () => {
     thisWeek: 0,
     sources: {} as Record<string, number>
   });
+  const [showTrackingSetup, setShowTrackingSetup] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -206,6 +208,15 @@ const Admin = () => {
               <Button 
                 variant="outline" 
                 size="sm"
+                onClick={() => setShowTrackingSetup(!showTrackingSetup)}
+                className="flex items-center gap-2"
+              >
+                <Settings className="h-4 w-4" />
+                {showTrackingSetup ? 'Ocultar' : 'Tracking'}
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm"
                 onClick={fetchLeads}
                 disabled={isLoading}
                 className="flex items-center gap-2"
@@ -271,6 +282,13 @@ const Admin = () => {
             </Card>
           </div>
         </div>
+
+        {/* Tracking Setup */}
+        {showTrackingSetup && (
+          <div className="mb-6">
+            <TrackingSetup />
+          </div>
+        )}
 
         {/* Leads List */}
         <Card>

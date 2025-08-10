@@ -5,12 +5,14 @@ import { BenefitsSection } from "@/components/BenefitsSection";
 import { FormSection } from "@/components/FormSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ConversionTracking, useConversionTracking } from "@/components/ConversionTracking";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const { analytics, trackFormSubmission, trackWhatsAppClick } = useAnalytics();
+  const conversionTracking = useConversionTracking();
   const { toast } = useToast();
 
   const handleLeadSubmit = async (data: any) => {
@@ -24,8 +26,16 @@ const Index = () => {
         }]);
 
       if (error) throw error;
-      
+
+      // Tracking local
       trackFormSubmission();
+      // Tracking de conversões (Meta Pixel + Google Analytics)
+      conversionTracking.trackFormSubmission(data);
+      
+      toast({
+        title: "Obrigado pelo interesse!",
+        description: "Entraremos em contato em breve para agendar sua aula gratuita.",
+      });
       
     } catch (error) {
       console.error('Error submitting lead:', error);
@@ -34,7 +44,11 @@ const Index = () => {
   };
 
   const handleWhatsAppClick = () => {
+    // Tracking local
     trackWhatsAppClick();
+    // Tracking de conversões (Meta Pixel + Google Analytics)
+    conversionTracking.trackWhatsAppClick();
+    
     toast({
       title: "Redirecionando para WhatsApp",
       description: "Você será direcionado para o WhatsApp da Verbo Schools",
@@ -43,6 +57,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Sistemas de rastreamento */}
+      <ConversionTracking />
       {/* Hidden analytics display for debugging */}
       <div className="hidden">
         <p>Page Views: {analytics.pageViews}</p>
